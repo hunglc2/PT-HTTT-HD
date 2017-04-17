@@ -1,0 +1,15 @@
+insert into TRANSACTION_TYPES (name, status, created_by, last_update_by, created_date, last_update_date) values ('Bank Adjustment', 'Y', 87, 28, '2016-06-08 01:26:20', '2017-04-04 16:10:08');
+insert into TRANSACTION_TYPES (name, status, created_by, last_update_by, created_date, last_update_date) values ('Interest', 'Y', 94, 95, '2016-10-02 03:20:45', '2017-02-05 11:47:54');
+insert into TRANSACTION_TYPES (name, status, created_by, last_update_by, created_date, last_update_date) values ('Cash Transfer', 'Y', 86, 89, '2017-02-22 04:49:53', '2017-01-10 21:15:44');
+insert into TRANSACTION_TYPES (name, status, created_by, last_update_by, created_date, last_update_date) values ('Daily Cash Deposit', 'Y', 23, 6, '2016-09-16 08:57:57', '2016-05-30 14:13:35');
+insert into TRANSACTION_TYPES (name, status, created_by, last_update_by, created_date, last_update_date) values ('Credit Card Receipt', 'Y', 99, 12, '2017-03-28 01:26:18', '2016-07-29 20:25:49');
+insert into TRANSACTION_TYPES (name, status, created_by, last_update_by, created_date, last_update_date) values ('Credit Card Processing Fee', 'Y', 40, 50, '2016-04-23 21:00:30', '2017-01-11 11:24:33');
+insert into TRANSACTION_TYPES (name, status, created_by, last_update_by, created_date, last_update_date) values ('Credit Card Chargeback', 'Y', 93, 93, '2016-11-01 06:59:38', '2016-06-17 18:16:40');
+insert into TRANSACTION_TYPES (name, status, created_by, last_update_by, created_date, last_update_date) values ('Customer Order Payment', 'Y', 67, 76, '2016-05-11 04:02:46', '2016-09-18 23:19:24');
+insert into TRANSACTION_TYPES (name, status, created_by, last_update_by, created_date, last_update_date) values ('Bank Adjustment', 'Y', 77, 91, '2017-01-06 23:46:50', '2016-04-19 10:01:33');
+insert into TRANSACTION_TYPES (name, status, created_by, last_update_by, created_date, last_update_date) values ('Interest', 'Y', 2, 12, '2017-02-12 09:47:43', '2016-06-28 03:31:12');
+insert into TRANSACTION_TYPES (name, status, created_by, last_update_by, created_date, last_update_date) values ('Cash Transfer', 'Y', 96, 68, '2017-03-27 10:59:11', '2016-04-20 00:46:15');
+insert into TRANSACTION_TYPES (name, status, created_by, last_update_by, created_date, last_update_date) values ('Daily Cash Deposit', 'Y', 46, 99, '2016-05-25 12:07:21', '2016-12-30 00:59:27');
+insert into TRANSACTION_TYPES (name, status, created_by, last_update_by, created_date, last_update_date) values ('Credit Card Receipt', 'Y', 98, 75, '2016-08-30 16:40:58', '2017-03-09 03:42:28');
+insert into TRANSACTION_TYPES (name, status, created_by, last_update_by, created_date, last_update_date) values ('Credit Card Processing Fee', 'Y', 60, 60, '2016-07-01 00:25:49', '2016-04-28 19:50:19');
+insert into TRANSACTION_TYPES (name, status, created_by, last_update_by, created_date, last_update_date) values ('Credit Card Chargeback', 'Y', 76, 77, '2016-10-02 10:36:02', '2017-02-12 02:48:22');
