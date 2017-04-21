@@ -165,7 +165,6 @@
 		</dependency>
 
 	</dependencies>
-	
 	<build>
         <finalName>BMSpring</finalName>
         <plugins>
@@ -175,13 +174,6 @@
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
-                <!-- Config: contextPath and Port (Default: /SpringMVCSecurityXML : 8080) -->
-                <!--
-                <configuration>
-                    <path>/</path>
-                    <port>8899</port>
-                </configuration>
-                -->   
             </plugin>
             
          	<plugin>  
@@ -193,8 +185,8 @@
 		            <target>1.8</target>
 		        </configuration>
 		    </plugin>
-         	
-            <plugin>
+		    
+		    <plugin>
 			    <groupId>org.apache.maven.plugins</groupId>
 			    <artifactId>maven-war-plugin</artifactId>
 			    <version>2.4</version>
@@ -203,7 +195,6 @@
 			        <warSourceDirectory>src/main/webapp/</warSourceDirectory>
 			        <failOnMissingWebXml>false</failOnMissingWebXml>
 			    </configuration>
-			    
 			</plugin>
         </plugins>
     </build>
