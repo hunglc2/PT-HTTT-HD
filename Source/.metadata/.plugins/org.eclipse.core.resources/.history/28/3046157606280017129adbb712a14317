@@ -1,0 +1,6 @@
+package org.hoannguyen.bm.controller;
+
+@Controller
+public class MainController {
+
+}

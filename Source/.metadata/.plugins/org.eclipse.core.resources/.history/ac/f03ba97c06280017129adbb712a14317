@@ -1,0 +1,8 @@
+package org.hoannguyen.bm.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controllerer
+public class MainController {
+
+}

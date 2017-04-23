@@ -1,0 +1,26 @@
+package org.hoannguyen.bm.config;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+@Configuration
+@EnableWebMvc
+public class WebMvcConfig extends WebMvcConfigurerAdapter {
+	 	// Cau hinh de su dung cac file nguon tinh (html, image, ..)
+	   @Override
+	   public void addResourceHandlers(ResourceHandlerRegistry registry) {
+	       registry.addResourceHandler("/bootstrap/**").addResourceLocations("/views/bootstrap/").setCachePeriod(31556926);
+	       registry.addResourceHandler("/build/**").addResourceLocations("/views/build/").setCachePeriod(31556926);
+	       registry.addResourceHandler("/dist/**").addResourceLocations("/views/dist/").setCachePeriod(31556926);
+	       registry.addResourceHandler("/pages/**").addResourceLocations("/views/pages/").setCachePeriod(31556926);
+	       registry.addResourceHandler("/plugins/**").addResourceLocations("/views/plugins/").setCachePeriod(31556926);
+	   }
+	   
+	   @Override
+	   public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+	       configurer.enable();
+	   }
+}

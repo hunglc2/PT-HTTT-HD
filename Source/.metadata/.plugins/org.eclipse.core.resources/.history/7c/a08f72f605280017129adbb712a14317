@@ -1,0 +1,10 @@
+package org.hoannguyen.bm.config;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ComponentScan("org.hoannguyen.bm.*")
+public class ApplicationContextConfig {
+
+}

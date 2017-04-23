@@ -1,0 +1,7 @@
+package org.hoannguyen.bm.config;
+
+@Configuration
+@ComponentScan("org.o7planning.hellospringmvc.*")
+public class ApplicationContextConfig {
+
+}

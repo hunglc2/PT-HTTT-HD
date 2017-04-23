@@ -1,0 +1,7 @@
+package org.hoannguyen.bm.config;
+
+@Configuration
+@ComponentScan("org.hoannguyen.bm.*")
+public class ApplicationContextConfig {
+
+}

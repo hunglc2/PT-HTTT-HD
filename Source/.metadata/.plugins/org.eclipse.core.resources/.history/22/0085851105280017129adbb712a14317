@@ -1,0 +1,5 @@
+package org.hoannguyen.bm.config;
+
+public class SpringWebAppInitializer {
+
+}

@@ -1,0 +1,7 @@
+package org.hoannguyen.bm.config;
+
+import org.springframework.web.WebApplicationInitializer;
+
+public class SpringWebAppInitializer implements WebApplicationInitializer {
+	
+}
