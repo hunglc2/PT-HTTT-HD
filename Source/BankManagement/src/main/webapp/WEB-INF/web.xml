@@ -31,7 +31,7 @@
  
    <servlet-mapping>
         <servlet-name>mvc-dispatcher</servlet-name>
-        <url-pattern>/customer</url-pattern>
+        <url-pattern>/bm/*</url-pattern>
    </servlet-mapping>
     
     <!-- Spring Security Filter 
