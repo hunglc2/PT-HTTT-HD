@@ -8,14 +8,27 @@
  						http://www.springframework.org/schema/security/spring-security-4.2.xsd
  						http://www.springframework.org/schema/beans
  						http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
- 						
+ 	
 	<http auto-config="true" use-expressions="true">
 		<intercept-url pattern="/**" access="isAuthenticated()"/>
 		<intercept-url pattern="/bm/admin/**" access="ROLE_ADMIN" />
+		<!-- Spring authentication -->
+		<form-login
+		    login-page="/login"
+		    default-target-url="/login"
+			authentication-failure-url="/login?error"
+			username-parameter="username"
+			password-parameter="password" />
+		<logout logout-success-url="/login?logout" />
+		<!-- enable csrf protection -->
+		<csrf/>
+		
+		<!-- User custom authentication -->
 		<!-- <form-login authentication-success-handler-ref="mySuccessHandler"
-			authentication-failure-handler-ref="myFailureHandler" /> -->
+			authentication-failure-handler-ref="myFailureHandler" /> 
 		<http-basic />
 		<logout />
+		-->
 	</http>
 	
 	<!-- <beans:bean id="mySuccessHandler"
