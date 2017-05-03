@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BankModelStoreContainer" CdmEntityContainer="BANK_MANAGEMENTEntities">
+    <EntitySetMapping Name="ACCOUNTs">
+      <EntityTypeMapping TypeName="BankModel.ACCOUNT">
+        <MappingFragment StoreEntitySet="ACCOUNT">
+          <ScalarProperty Name="idACCOUNT" ColumnName="idACCOUNT" />
+          <ScalarProperty Name="idACCOUNT_TYPE" ColumnName="idACCOUNT_TYPE" />
+          <ScalarProperty Name="idBranch" ColumnName="idBranch" />
+          <ScalarProperty Name="idCUSTOMER" ColumnName="idCUSTOMER" />
+          <ScalarProperty Name="Account_number" ColumnName="Account_number" />
+          <ScalarProperty Name="Open_date" ColumnName="Open_date" />
+          <ScalarProperty Name="Close_date" ColumnName="Close_date" />
+          <ScalarProperty Name="Currentcy_code" ColumnName="Currentcy_code" />
+          <ScalarProperty Name="Min_Balance" ColumnName="Min_Balance" />
+          <ScalarProperty Name="Max_Balance" ColumnName="Max_Balance" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+          <ScalarProperty Name="Last_update_by" ColumnName="Last_update_by" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="Last_update_date" ColumnName="Last_update_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACCOUNT_TYPE">
+      <EntityTypeMapping TypeName="BankModel.ACCOUNT_TYPE">
+        <MappingFragment StoreEntitySet="ACCOUNT_TYPE">
+          <ScalarProperty Name="idACCOUNT_TYPE" ColumnName="idACCOUNT_TYPE" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MinBal" ColumnName="MinBal" />
+          <ScalarProperty Name="MaxBal" ColumnName="MaxBal" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+          <ScalarProperty Name="Last_update_by" ColumnName="Last_update_by" />
+          <ScalarProperty Name="Create_date" ColumnName="Create_date" />
+          <ScalarProperty Name="Last_update_date" ColumnName="Last_update_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BRANCHes">
+      <EntityTypeMapping TypeName="BankModel.BRANCH">
+        <MappingFragment StoreEntitySet="BRANCH">
+          <ScalarProperty Name="idBranch" ColumnName="idBranch" />
+          <ScalarProperty Name="idOWNER" ColumnName="idOWNER" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="last_update_by" ColumnName="last_update_by" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="last_update_date" ColumnName="last_update_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CUSTOMERs">
+      <EntityTypeMapping TypeName="BankModel.CUSTOMER">
+        <MappingFragment StoreEntitySet="CUSTOMER">
+          <ScalarProperty Name="idCUSTOMER" ColumnName="idCUSTOMER" />
+          <ScalarProperty Name="idBranch" ColumnName="idBranch" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ID_NUMBER" ColumnName="ID_NUMBER" />
+          <ScalarProperty Name="ID_DATE" ColumnName="ID_DATE" />
+          <ScalarProperty Name="ID_PLACE" ColumnName="ID_PLACE" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+          <ScalarProperty Name="Last_update_by" ColumnName="Last_update_by" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="Last_update_date" ColumnName="Last_update_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEEs">
+      <EntityTypeMapping TypeName="BankModel.EMPLOYEE">
+        <MappingFragment StoreEntitySet="EMPLOYEE">
+          <ScalarProperty Name="idEMPLOYEE" ColumnName="idEMPLOYEE" />
+          <ScalarProperty Name="idBranch" ColumnName="idBranch" />
+          <ScalarProperty Name="idPOSITION" ColumnName="idPOSITION" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="last_update_by" ColumnName="last_update_by" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="last_update_date" ColumnName="last_update_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWNERs">
+      <EntityTypeMapping TypeName="BankModel.OWNER">
+        <MappingFragment StoreEntitySet="OWNER">
+          <ScalarProperty Name="idOWNER" ColumnName="idOWNER" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="last_update_by" ColumnName="last_update_by" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="last_update_date" ColumnName="last_update_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="POSITION_EMP">
+      <EntityTypeMapping TypeName="BankModel.POSITION_EMP">
+        <MappingFragment StoreEntitySet="POSITION_EMP">
+          <ScalarProperty Name="idPOSITION" ColumnName="idPOSITION" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+          <ScalarProperty Name="Last_update_by" ColumnName="Last_update_by" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="Last_update_date" ColumnName="Last_update_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SAVINGS_ACCOUNT">
+      <EntityTypeMapping TypeName="BankModel.SAVINGS_ACCOUNT">
+        <MappingFragment StoreEntitySet="SAVINGS_ACCOUNT">
+          <ScalarProperty Name="idSAVINGS_ACCOUNT" ColumnName="idSAVINGS_ACCOUNT" />
+          <ScalarProperty Name="idTYPE_SAVINGS_ACCOUNT" ColumnName="idTYPE_SAVINGS_ACCOUNT" />
+          <ScalarProperty Name="idBranch" ColumnName="idBranch" />
+          <ScalarProperty Name="idCUSTOMER" ColumnName="idCUSTOMER" />
+          <ScalarProperty Name="idACCOUNT" ColumnName="idACCOUNT" />
+          <ScalarProperty Name="Open_Date" ColumnName="Open_Date" />
+          <ScalarProperty Name="Close_Date" ColumnName="Close_Date" />
+          <ScalarProperty Name="Maturial_Date" ColumnName="Maturial_Date" />
+          <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+          <ScalarProperty Name="Last_update_by" ColumnName="Last_update_by" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="Last_update_date" ColumnName="Last_update_date" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRANSACTION_TYPES">
+      <EntityTypeMapping TypeName="BankModel.TRANSACTION_TYPES">
+        <MappingFragment StoreEntitySet="TRANSACTION_TYPES">
+          <ScalarProperty Name="idTRANSACTION_TYPES" ColumnName="idTRANSACTION_TYPES" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+          <ScalarProperty Name="Last_update_by" ColumnName="Last_update_by" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="Last_update_date" ColumnName="Last_update_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRANSACTIONS">
+      <EntityTypeMapping TypeName="BankModel.TRANSACTION">
+        <MappingFragment StoreEntitySet="TRANSACTIONS">
+          <ScalarProperty Name="idTRANSACTIONS" ColumnName="idTRANSACTIONS" />
+          <ScalarProperty Name="idBranch" ColumnName="idBranch" />
+          <ScalarProperty Name="idTRANSACTION_TYPES" ColumnName="idTRANSACTION_TYPES" />
+          <ScalarProperty Name="idACCOUNT" ColumnName="idACCOUNT" />
+          <ScalarProperty Name="Entered_amount" ColumnName="Entered_amount" />
+          <ScalarProperty Name="Accounted_amount" ColumnName="Accounted_amount" />
+          <ScalarProperty Name="Fee_amount" ColumnName="Fee_amount" />
+          <ScalarProperty Name="Tax_amount" ColumnName="Tax_amount" />
+          <ScalarProperty Name="Currentcy_code" ColumnName="Currentcy_code" />
+          <ScalarProperty Name="Exchange_rate" ColumnName="Exchange_rate" />
+          <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+          <ScalarProperty Name="Last_update_by" ColumnName="Last_update_by" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="Last_update_date" ColumnName="Last_update_date" />
+          <ScalarProperty Name="Approver_by" ColumnName="Approver_by" />
+          <ScalarProperty Name="Approver_date" ColumnName="Approver_date" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYPE_SAVINGS_ACCOUNT">
+      <EntityTypeMapping TypeName="BankModel.TYPE_SAVINGS_ACCOUNT">
+        <MappingFragment StoreEntitySet="TYPE_SAVINGS_ACCOUNT">
+          <ScalarProperty Name="idTYPE_SAVINGS_ACCOUNT" ColumnName="idTYPE_SAVINGS_ACCOUNT" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Create_by" ColumnName="Create_by" />
+          <ScalarProperty Name="Last_update_by" ColumnName="Last_update_by" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="Last_update_date" ColumnName="Last_update_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

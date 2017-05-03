@@ -1,0 +1,1086 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BankModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACCOUNT">
+          <Key>
+            <PropertyRef Name="idACCOUNT" />
+          </Key>
+          <Property Name="idACCOUNT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idACCOUNT_TYPE" Type="int" Nullable="false" />
+          <Property Name="idBranch" Type="int" Nullable="false" />
+          <Property Name="idCUSTOMER" Type="int" Nullable="false" />
+          <Property Name="Account_number" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="Open_date" Type="date" />
+          <Property Name="Close_date" Type="date" />
+          <Property Name="Currentcy_code" Type="varchar" MaxLength="15" />
+          <Property Name="Min_Balance" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Max_Balance" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="varchar" MaxLength="15" />
+          <Property Name="Created_by" Type="int" />
+          <Property Name="Last_update_by" Type="int" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Last_update_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ACCOUNT_TYPE">
+          <Key>
+            <PropertyRef Name="idACCOUNT_TYPE" />
+          </Key>
+          <Property Name="idACCOUNT_TYPE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="155" />
+          <Property Name="MinBal" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="MaxBal" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="varchar" MaxLength="15" />
+          <Property Name="Created_by" Type="int" />
+          <Property Name="Last_update_by" Type="int" />
+          <Property Name="Create_date" Type="datetime" />
+          <Property Name="Last_update_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BRANCH">
+          <Key>
+            <PropertyRef Name="idBranch" />
+          </Key>
+          <Property Name="idBranch" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idOWNER" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" />
+          <Property Name="Fax" Type="varchar" MaxLength="20" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="last_update_by" Type="int" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="last_update_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="idCUSTOMER" />
+          </Key>
+          <Property Name="idCUSTOMER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idBranch" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="55" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="Birthday" Type="date" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="15" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" />
+          <Property Name="Fax" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="45" />
+          <Property Name="ID_NUMBER" Type="varchar" MaxLength="25" />
+          <Property Name="ID_DATE" Type="date" />
+          <Property Name="ID_PLACE" Type="nvarchar" MaxLength="155" />
+          <Property Name="Status" Type="varchar" MaxLength="15" />
+          <Property Name="Created_by" Type="int" />
+          <Property Name="Last_update_by" Type="int" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Last_update_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="idEMPLOYEE" />
+          </Key>
+          <Property Name="idEMPLOYEE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idBranch" Type="int" Nullable="false" />
+          <Property Name="idPOSITION" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="last_update_by" Type="int" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="last_update_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OWNER">
+          <Key>
+            <PropertyRef Name="idOWNER" />
+          </Key>
+          <Property Name="idOWNER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="Phone" Type="varchar" MaxLength="15" />
+          <Property Name="Fax" Type="varchar" MaxLength="20" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="last_update_by" Type="int" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="last_update_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="POSITION_EMP">
+          <Key>
+            <PropertyRef Name="idPOSITION" />
+          </Key>
+          <Property Name="idPOSITION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Status" Type="varchar" MaxLength="15" />
+          <Property Name="Created_by" Type="int" />
+          <Property Name="Last_update_by" Type="int" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Last_update_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SAVINGS_ACCOUNT">
+          <Key>
+            <PropertyRef Name="idSAVINGS_ACCOUNT" />
+          </Key>
+          <Property Name="idSAVINGS_ACCOUNT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idTYPE_SAVINGS_ACCOUNT" Type="int" Nullable="false" />
+          <Property Name="idBranch" Type="int" Nullable="false" />
+          <Property Name="idCUSTOMER" Type="int" Nullable="false" />
+          <Property Name="idACCOUNT" Type="int" Nullable="false" />
+          <Property Name="Open_Date" Type="date" />
+          <Property Name="Close_Date" Type="date" />
+          <Property Name="Maturial_Date" Type="date" />
+          <Property Name="Created_by" Type="int" />
+          <Property Name="Last_update_by" Type="int" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Last_update_date" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="TRANSACTION_TYPES">
+          <Key>
+            <PropertyRef Name="idTRANSACTION_TYPES" />
+          </Key>
+          <Property Name="idTRANSACTION_TYPES" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="155" />
+          <Property Name="Status" Type="varchar" MaxLength="15" />
+          <Property Name="Created_by" Type="int" />
+          <Property Name="Last_update_by" Type="int" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Last_update_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TRANSACTIONS">
+          <Key>
+            <PropertyRef Name="idTRANSACTIONS" />
+          </Key>
+          <Property Name="idTRANSACTIONS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idBranch" Type="int" Nullable="false" />
+          <Property Name="idTRANSACTION_TYPES" Type="int" Nullable="false" />
+          <Property Name="idACCOUNT" Type="int" Nullable="false" />
+          <Property Name="Entered_amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Accounted_amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Fee_amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Tax_amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Currentcy_code" Type="varchar" MaxLength="45" />
+          <Property Name="Exchange_rate" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Created_by" Type="int" />
+          <Property Name="Last_update_by" Type="int" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Last_update_date" Type="datetime" />
+          <Property Name="Approver_by" Type="int" />
+          <Property Name="Approver_date" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="TYPE_SAVINGS_ACCOUNT">
+          <Key>
+            <PropertyRef Name="idTYPE_SAVINGS_ACCOUNT" />
+          </Key>
+          <Property Name="idTYPE_SAVINGS_ACCOUNT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="155" />
+          <Property Name="Status" Type="varchar" MaxLength="15" />
+          <Property Name="Create_by" Type="int" />
+          <Property Name="Last_update_by" Type="int" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Last_update_date" Type="datetime" />
+        </EntityType>
+        <Association Name="fk_ACCOUNT_ACCOUNT_TYPE1">
+          <End Role="ACCOUNT_TYPE" Type="Self.ACCOUNT_TYPE" Multiplicity="1" />
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT_TYPE">
+              <PropertyRef Name="idACCOUNT_TYPE" />
+            </Principal>
+            <Dependent Role="ACCOUNT">
+              <PropertyRef Name="idACCOUNT_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ACCOUNT_BRANCH1">
+          <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="1" />
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH">
+              <PropertyRef Name="idBranch" />
+            </Principal>
+            <Dependent Role="ACCOUNT">
+              <PropertyRef Name="idBranch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ACCOUNT_CUSTOMER1">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="idCUSTOMER" />
+            </Principal>
+            <Dependent Role="ACCOUNT">
+              <PropertyRef Name="idCUSTOMER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_BRANCH_OWNER">
+          <End Role="OWNER" Type="Self.OWNER" Multiplicity="1" />
+          <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWNER">
+              <PropertyRef Name="idOWNER" />
+            </Principal>
+            <Dependent Role="BRANCH">
+              <PropertyRef Name="idOWNER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CUSTOMER_BRANCH1">
+          <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="1" />
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH">
+              <PropertyRef Name="idBranch" />
+            </Principal>
+            <Dependent Role="CUSTOMER">
+              <PropertyRef Name="idBranch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_EMPLOYEE_BRANCH1">
+          <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH">
+              <PropertyRef Name="idBranch" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="idBranch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_EMPLOYEE_POSITION_EMP1">
+          <End Role="POSITION_EMP" Type="Self.POSITION_EMP" Multiplicity="1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POSITION_EMP">
+              <PropertyRef Name="idPOSITION" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="idPOSITION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SAVINGS_ACCOUNT_ACCOUNT1">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
+          <End Role="SAVINGS_ACCOUNT" Type="Self.SAVINGS_ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="idACCOUNT" />
+            </Principal>
+            <Dependent Role="SAVINGS_ACCOUNT">
+              <PropertyRef Name="idACCOUNT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SAVINGS_ACCOUNT_BRANCH1">
+          <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="1" />
+          <End Role="SAVINGS_ACCOUNT" Type="Self.SAVINGS_ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH">
+              <PropertyRef Name="idBranch" />
+            </Principal>
+            <Dependent Role="SAVINGS_ACCOUNT">
+              <PropertyRef Name="idBranch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SAVINGS_ACCOUNT_CUSTOMER1">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="SAVINGS_ACCOUNT" Type="Self.SAVINGS_ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="idCUSTOMER" />
+            </Principal>
+            <Dependent Role="SAVINGS_ACCOUNT">
+              <PropertyRef Name="idCUSTOMER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SAVINGS_ACCOUNT_TYPE_SAVINGS_ACCOUNT1">
+          <End Role="TYPE_SAVINGS_ACCOUNT" Type="Self.TYPE_SAVINGS_ACCOUNT" Multiplicity="1" />
+          <End Role="SAVINGS_ACCOUNT" Type="Self.SAVINGS_ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_SAVINGS_ACCOUNT">
+              <PropertyRef Name="idTYPE_SAVINGS_ACCOUNT" />
+            </Principal>
+            <Dependent Role="SAVINGS_ACCOUNT">
+              <PropertyRef Name="idTYPE_SAVINGS_ACCOUNT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TRANSACTIONS_ACCOUNT1">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
+          <End Role="TRANSACTIONS" Type="Self.TRANSACTIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="idACCOUNT" />
+            </Principal>
+            <Dependent Role="TRANSACTIONS">
+              <PropertyRef Name="idACCOUNT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TRANSACTIONS_BRANCH1">
+          <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="1" />
+          <End Role="TRANSACTIONS" Type="Self.TRANSACTIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH">
+              <PropertyRef Name="idBranch" />
+            </Principal>
+            <Dependent Role="TRANSACTIONS">
+              <PropertyRef Name="idBranch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TRANSACTIONS_TRANSACTION_TYPES1">
+          <End Role="TRANSACTION_TYPES" Type="Self.TRANSACTION_TYPES" Multiplicity="1" />
+          <End Role="TRANSACTIONS" Type="Self.TRANSACTIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSACTION_TYPES">
+              <PropertyRef Name="idTRANSACTION_TYPES" />
+            </Principal>
+            <Dependent Role="TRANSACTIONS">
+              <PropertyRef Name="idTRANSACTION_TYPES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BankModelStoreContainer">
+          <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ACCOUNT_TYPE" EntityType="Self.ACCOUNT_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BRANCH" EntityType="Self.BRANCH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWNER" EntityType="Self.OWNER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POSITION_EMP" EntityType="Self.POSITION_EMP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SAVINGS_ACCOUNT" EntityType="Self.SAVINGS_ACCOUNT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRANSACTION_TYPES" EntityType="Self.TRANSACTION_TYPES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRANSACTIONS" EntityType="Self.TRANSACTIONS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TYPE_SAVINGS_ACCOUNT" EntityType="Self.TYPE_SAVINGS_ACCOUNT" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_ACCOUNT_ACCOUNT_TYPE1" Association="Self.fk_ACCOUNT_ACCOUNT_TYPE1">
+            <End Role="ACCOUNT_TYPE" EntitySet="ACCOUNT_TYPE" />
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ACCOUNT_BRANCH1" Association="Self.fk_ACCOUNT_BRANCH1">
+            <End Role="BRANCH" EntitySet="BRANCH" />
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ACCOUNT_CUSTOMER1" Association="Self.fk_ACCOUNT_CUSTOMER1">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_BRANCH_OWNER" Association="Self.fk_BRANCH_OWNER">
+            <End Role="OWNER" EntitySet="OWNER" />
+            <End Role="BRANCH" EntitySet="BRANCH" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CUSTOMER_BRANCH1" Association="Self.fk_CUSTOMER_BRANCH1">
+            <End Role="BRANCH" EntitySet="BRANCH" />
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_EMPLOYEE_BRANCH1" Association="Self.fk_EMPLOYEE_BRANCH1">
+            <End Role="BRANCH" EntitySet="BRANCH" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_EMPLOYEE_POSITION_EMP1" Association="Self.fk_EMPLOYEE_POSITION_EMP1">
+            <End Role="POSITION_EMP" EntitySet="POSITION_EMP" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SAVINGS_ACCOUNT_ACCOUNT1" Association="Self.fk_SAVINGS_ACCOUNT_ACCOUNT1">
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+            <End Role="SAVINGS_ACCOUNT" EntitySet="SAVINGS_ACCOUNT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SAVINGS_ACCOUNT_BRANCH1" Association="Self.fk_SAVINGS_ACCOUNT_BRANCH1">
+            <End Role="BRANCH" EntitySet="BRANCH" />
+            <End Role="SAVINGS_ACCOUNT" EntitySet="SAVINGS_ACCOUNT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SAVINGS_ACCOUNT_CUSTOMER1" Association="Self.fk_SAVINGS_ACCOUNT_CUSTOMER1">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="SAVINGS_ACCOUNT" EntitySet="SAVINGS_ACCOUNT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SAVINGS_ACCOUNT_TYPE_SAVINGS_ACCOUNT1" Association="Self.fk_SAVINGS_ACCOUNT_TYPE_SAVINGS_ACCOUNT1">
+            <End Role="TYPE_SAVINGS_ACCOUNT" EntitySet="TYPE_SAVINGS_ACCOUNT" />
+            <End Role="SAVINGS_ACCOUNT" EntitySet="SAVINGS_ACCOUNT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TRANSACTIONS_ACCOUNT1" Association="Self.fk_TRANSACTIONS_ACCOUNT1">
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+            <End Role="TRANSACTIONS" EntitySet="TRANSACTIONS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TRANSACTIONS_BRANCH1" Association="Self.fk_TRANSACTIONS_BRANCH1">
+            <End Role="BRANCH" EntitySet="BRANCH" />
+            <End Role="TRANSACTIONS" EntitySet="TRANSACTIONS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TRANSACTIONS_TRANSACTION_TYPES1" Association="Self.fk_TRANSACTIONS_TRANSACTION_TYPES1">
+            <End Role="TRANSACTION_TYPES" EntitySet="TRANSACTION_TYPES" />
+            <End Role="TRANSACTIONS" EntitySet="TRANSACTIONS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BankModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ACCOUNT">
+          <Key>
+            <PropertyRef Name="idACCOUNT" />
+          </Key>
+          <Property Name="idACCOUNT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idACCOUNT_TYPE" Type="Int32" Nullable="false" />
+          <Property Name="idBranch" Type="Int32" Nullable="false" />
+          <Property Name="idCUSTOMER" Type="Int32" Nullable="false" />
+          <Property Name="Account_number" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Open_date" Type="DateTime" Precision="0" />
+          <Property Name="Close_date" Type="DateTime" Precision="0" />
+          <Property Name="Currentcy_code" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Min_Balance" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Max_Balance" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Created_by" Type="Int32" />
+          <Property Name="Last_update_by" Type="Int32" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Last_update_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ACCOUNT_TYPE" Relationship="Self.fk_ACCOUNT_ACCOUNT_TYPE1" FromRole="ACCOUNT" ToRole="ACCOUNT_TYPE" />
+          <NavigationProperty Name="BRANCH" Relationship="Self.fk_ACCOUNT_BRANCH1" FromRole="ACCOUNT" ToRole="BRANCH" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.fk_ACCOUNT_CUSTOMER1" FromRole="ACCOUNT" ToRole="CUSTOMER" />
+          <NavigationProperty Name="SAVINGS_ACCOUNT" Relationship="Self.fk_SAVINGS_ACCOUNT_ACCOUNT1" FromRole="ACCOUNT" ToRole="SAVINGS_ACCOUNT" />
+          <NavigationProperty Name="TRANSACTIONS" Relationship="Self.fk_TRANSACTIONS_ACCOUNT1" FromRole="ACCOUNT" ToRole="TRANSACTIONS" />
+        </EntityType>
+        <EntityType Name="ACCOUNT_TYPE">
+          <Key>
+            <PropertyRef Name="idACCOUNT_TYPE" />
+          </Key>
+          <Property Name="idACCOUNT_TYPE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="155" FixedLength="false" Unicode="true" />
+          <Property Name="MinBal" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MaxBal" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Created_by" Type="Int32" />
+          <Property Name="Last_update_by" Type="Int32" />
+          <Property Name="Create_date" Type="DateTime" Precision="3" />
+          <Property Name="Last_update_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ACCOUNTs" Relationship="Self.fk_ACCOUNT_ACCOUNT_TYPE1" FromRole="ACCOUNT_TYPE" ToRole="ACCOUNT" />
+        </EntityType>
+        <EntityType Name="BRANCH">
+          <Key>
+            <PropertyRef Name="idBranch" />
+          </Key>
+          <Property Name="idBranch" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idOWNER" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="last_update_by" Type="Int32" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="last_update_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ACCOUNTs" Relationship="Self.fk_ACCOUNT_BRANCH1" FromRole="BRANCH" ToRole="ACCOUNT" />
+          <NavigationProperty Name="OWNER" Relationship="Self.fk_BRANCH_OWNER" FromRole="BRANCH" ToRole="OWNER" />
+          <NavigationProperty Name="CUSTOMERs" Relationship="Self.fk_CUSTOMER_BRANCH1" FromRole="BRANCH" ToRole="CUSTOMER" />
+          <NavigationProperty Name="EMPLOYEEs" Relationship="Self.fk_EMPLOYEE_BRANCH1" FromRole="BRANCH" ToRole="EMPLOYEE" />
+          <NavigationProperty Name="SAVINGS_ACCOUNT" Relationship="Self.fk_SAVINGS_ACCOUNT_BRANCH1" FromRole="BRANCH" ToRole="SAVINGS_ACCOUNT" />
+          <NavigationProperty Name="TRANSACTIONS" Relationship="Self.fk_TRANSACTIONS_BRANCH1" FromRole="BRANCH" ToRole="TRANSACTIONS" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="idCUSTOMER" />
+          </Key>
+          <Property Name="idCUSTOMER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idBranch" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <Property Name="Sex" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ID_NUMBER" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ID_DATE" Type="DateTime" Precision="0" />
+          <Property Name="ID_PLACE" Type="String" MaxLength="155" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Created_by" Type="Int32" />
+          <Property Name="Last_update_by" Type="Int32" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Last_update_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ACCOUNTs" Relationship="Self.fk_ACCOUNT_CUSTOMER1" FromRole="CUSTOMER" ToRole="ACCOUNT" />
+          <NavigationProperty Name="BRANCH" Relationship="Self.fk_CUSTOMER_BRANCH1" FromRole="CUSTOMER" ToRole="BRANCH" />
+          <NavigationProperty Name="SAVINGS_ACCOUNT" Relationship="Self.fk_SAVINGS_ACCOUNT_CUSTOMER1" FromRole="CUSTOMER" ToRole="SAVINGS_ACCOUNT" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="idEMPLOYEE" />
+          </Key>
+          <Property Name="idEMPLOYEE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idBranch" Type="Int32" Nullable="false" />
+          <Property Name="idPOSITION" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="last_update_by" Type="Int32" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="last_update_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="BRANCH" Relationship="Self.fk_EMPLOYEE_BRANCH1" FromRole="EMPLOYEE" ToRole="BRANCH" />
+          <NavigationProperty Name="POSITION_EMP" Relationship="Self.fk_EMPLOYEE_POSITION_EMP1" FromRole="EMPLOYEE" ToRole="POSITION_EMP" />
+        </EntityType>
+        <EntityType Name="OWNER">
+          <Key>
+            <PropertyRef Name="idOWNER" />
+          </Key>
+          <Property Name="idOWNER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="last_update_by" Type="Int32" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="last_update_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="BRANCHes" Relationship="Self.fk_BRANCH_OWNER" FromRole="OWNER" ToRole="BRANCH" />
+        </EntityType>
+        <EntityType Name="POSITION_EMP">
+          <Key>
+            <PropertyRef Name="idPOSITION" />
+          </Key>
+          <Property Name="idPOSITION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Created_by" Type="Int32" />
+          <Property Name="Last_update_by" Type="Int32" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Last_update_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="EMPLOYEEs" Relationship="Self.fk_EMPLOYEE_POSITION_EMP1" FromRole="POSITION_EMP" ToRole="EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="SAVINGS_ACCOUNT">
+          <Key>
+            <PropertyRef Name="idSAVINGS_ACCOUNT" />
+          </Key>
+          <Property Name="idSAVINGS_ACCOUNT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idTYPE_SAVINGS_ACCOUNT" Type="Int32" Nullable="false" />
+          <Property Name="idBranch" Type="Int32" Nullable="false" />
+          <Property Name="idCUSTOMER" Type="Int32" Nullable="false" />
+          <Property Name="idACCOUNT" Type="Int32" Nullable="false" />
+          <Property Name="Open_Date" Type="DateTime" Precision="0" />
+          <Property Name="Close_Date" Type="DateTime" Precision="0" />
+          <Property Name="Maturial_Date" Type="DateTime" Precision="0" />
+          <Property Name="Created_by" Type="Int32" />
+          <Property Name="Last_update_by" Type="Int32" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Last_update_date" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ACCOUNT" Relationship="Self.fk_SAVINGS_ACCOUNT_ACCOUNT1" FromRole="SAVINGS_ACCOUNT" ToRole="ACCOUNT" />
+          <NavigationProperty Name="BRANCH" Relationship="Self.fk_SAVINGS_ACCOUNT_BRANCH1" FromRole="SAVINGS_ACCOUNT" ToRole="BRANCH" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.fk_SAVINGS_ACCOUNT_CUSTOMER1" FromRole="SAVINGS_ACCOUNT" ToRole="CUSTOMER" />
+          <NavigationProperty Name="TYPE_SAVINGS_ACCOUNT" Relationship="Self.fk_SAVINGS_ACCOUNT_TYPE_SAVINGS_ACCOUNT1" FromRole="SAVINGS_ACCOUNT" ToRole="TYPE_SAVINGS_ACCOUNT" />
+        </EntityType>
+        <EntityType Name="TRANSACTION_TYPES">
+          <Key>
+            <PropertyRef Name="idTRANSACTION_TYPES" />
+          </Key>
+          <Property Name="idTRANSACTION_TYPES" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="155" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Created_by" Type="Int32" />
+          <Property Name="Last_update_by" Type="Int32" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Last_update_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TRANSACTIONS" Relationship="Self.fk_TRANSACTIONS_TRANSACTION_TYPES1" FromRole="TRANSACTION_TYPES" ToRole="TRANSACTIONS" />
+        </EntityType>
+        <EntityType Name="TRANSACTION">
+          <Key>
+            <PropertyRef Name="idTRANSACTIONS" />
+          </Key>
+          <Property Name="idTRANSACTIONS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idBranch" Type="Int32" Nullable="false" />
+          <Property Name="idTRANSACTION_TYPES" Type="Int32" Nullable="false" />
+          <Property Name="idACCOUNT" Type="Int32" Nullable="false" />
+          <Property Name="Entered_amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Accounted_amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Fee_amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Tax_amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Currentcy_code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Exchange_rate" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Created_by" Type="Int32" />
+          <Property Name="Last_update_by" Type="Int32" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Last_update_date" Type="DateTime" Precision="3" />
+          <Property Name="Approver_by" Type="Int32" />
+          <Property Name="Approver_date" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ACCOUNT" Relationship="Self.fk_TRANSACTIONS_ACCOUNT1" FromRole="TRANSACTIONS" ToRole="ACCOUNT" />
+          <NavigationProperty Name="BRANCH" Relationship="Self.fk_TRANSACTIONS_BRANCH1" FromRole="TRANSACTIONS" ToRole="BRANCH" />
+          <NavigationProperty Name="TRANSACTION_TYPES" Relationship="Self.fk_TRANSACTIONS_TRANSACTION_TYPES1" FromRole="TRANSACTIONS" ToRole="TRANSACTION_TYPES" />
+        </EntityType>
+        <EntityType Name="TYPE_SAVINGS_ACCOUNT">
+          <Key>
+            <PropertyRef Name="idTYPE_SAVINGS_ACCOUNT" />
+          </Key>
+          <Property Name="idTYPE_SAVINGS_ACCOUNT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="155" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Create_by" Type="Int32" />
+          <Property Name="Last_update_by" Type="Int32" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Last_update_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="SAVINGS_ACCOUNT" Relationship="Self.fk_SAVINGS_ACCOUNT_TYPE_SAVINGS_ACCOUNT1" FromRole="TYPE_SAVINGS_ACCOUNT" ToRole="SAVINGS_ACCOUNT" />
+        </EntityType>
+        <Association Name="fk_ACCOUNT_ACCOUNT_TYPE1">
+          <End Role="ACCOUNT_TYPE" Type="Self.ACCOUNT_TYPE" Multiplicity="1" />
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT_TYPE">
+              <PropertyRef Name="idACCOUNT_TYPE" />
+            </Principal>
+            <Dependent Role="ACCOUNT">
+              <PropertyRef Name="idACCOUNT_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ACCOUNT_BRANCH1">
+          <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="1" />
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH">
+              <PropertyRef Name="idBranch" />
+            </Principal>
+            <Dependent Role="ACCOUNT">
+              <PropertyRef Name="idBranch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ACCOUNT_CUSTOMER1">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="idCUSTOMER" />
+            </Principal>
+            <Dependent Role="ACCOUNT">
+              <PropertyRef Name="idCUSTOMER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SAVINGS_ACCOUNT_ACCOUNT1">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
+          <End Role="SAVINGS_ACCOUNT" Type="Self.SAVINGS_ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="idACCOUNT" />
+            </Principal>
+            <Dependent Role="SAVINGS_ACCOUNT">
+              <PropertyRef Name="idACCOUNT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TRANSACTIONS_ACCOUNT1">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="1" />
+          <End Role="TRANSACTIONS" Type="Self.TRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="idACCOUNT" />
+            </Principal>
+            <Dependent Role="TRANSACTIONS">
+              <PropertyRef Name="idACCOUNT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_BRANCH_OWNER">
+          <End Role="OWNER" Type="Self.OWNER" Multiplicity="1" />
+          <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWNER">
+              <PropertyRef Name="idOWNER" />
+            </Principal>
+            <Dependent Role="BRANCH">
+              <PropertyRef Name="idOWNER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CUSTOMER_BRANCH1">
+          <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="1" />
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH">
+              <PropertyRef Name="idBranch" />
+            </Principal>
+            <Dependent Role="CUSTOMER">
+              <PropertyRef Name="idBranch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_EMPLOYEE_BRANCH1">
+          <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH">
+              <PropertyRef Name="idBranch" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="idBranch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SAVINGS_ACCOUNT_BRANCH1">
+          <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="1" />
+          <End Role="SAVINGS_ACCOUNT" Type="Self.SAVINGS_ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH">
+              <PropertyRef Name="idBranch" />
+            </Principal>
+            <Dependent Role="SAVINGS_ACCOUNT">
+              <PropertyRef Name="idBranch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TRANSACTIONS_BRANCH1">
+          <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="1" />
+          <End Role="TRANSACTIONS" Type="Self.TRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH">
+              <PropertyRef Name="idBranch" />
+            </Principal>
+            <Dependent Role="TRANSACTIONS">
+              <PropertyRef Name="idBranch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SAVINGS_ACCOUNT_CUSTOMER1">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="SAVINGS_ACCOUNT" Type="Self.SAVINGS_ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="idCUSTOMER" />
+            </Principal>
+            <Dependent Role="SAVINGS_ACCOUNT">
+              <PropertyRef Name="idCUSTOMER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_EMPLOYEE_POSITION_EMP1">
+          <End Role="POSITION_EMP" Type="Self.POSITION_EMP" Multiplicity="1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POSITION_EMP">
+              <PropertyRef Name="idPOSITION" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="idPOSITION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SAVINGS_ACCOUNT_TYPE_SAVINGS_ACCOUNT1">
+          <End Role="TYPE_SAVINGS_ACCOUNT" Type="Self.TYPE_SAVINGS_ACCOUNT" Multiplicity="1" />
+          <End Role="SAVINGS_ACCOUNT" Type="Self.SAVINGS_ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_SAVINGS_ACCOUNT">
+              <PropertyRef Name="idTYPE_SAVINGS_ACCOUNT" />
+            </Principal>
+            <Dependent Role="SAVINGS_ACCOUNT">
+              <PropertyRef Name="idTYPE_SAVINGS_ACCOUNT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TRANSACTIONS_TRANSACTION_TYPES1">
+          <End Role="TRANSACTION_TYPES" Type="Self.TRANSACTION_TYPES" Multiplicity="1" />
+          <End Role="TRANSACTIONS" Type="Self.TRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSACTION_TYPES">
+              <PropertyRef Name="idTRANSACTION_TYPES" />
+            </Principal>
+            <Dependent Role="TRANSACTIONS">
+              <PropertyRef Name="idTRANSACTION_TYPES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BANK_MANAGEMENTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ACCOUNTs" EntityType="Self.ACCOUNT" />
+          <EntitySet Name="ACCOUNT_TYPE" EntityType="Self.ACCOUNT_TYPE" />
+          <EntitySet Name="BRANCHes" EntityType="Self.BRANCH" />
+          <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
+          <EntitySet Name="EMPLOYEEs" EntityType="Self.EMPLOYEE" />
+          <EntitySet Name="OWNERs" EntityType="Self.OWNER" />
+          <EntitySet Name="POSITION_EMP" EntityType="Self.POSITION_EMP" />
+          <EntitySet Name="SAVINGS_ACCOUNT" EntityType="Self.SAVINGS_ACCOUNT" />
+          <EntitySet Name="TRANSACTION_TYPES" EntityType="Self.TRANSACTION_TYPES" />
+          <EntitySet Name="TRANSACTIONS" EntityType="Self.TRANSACTION" />
+          <EntitySet Name="TYPE_SAVINGS_ACCOUNT" EntityType="Self.TYPE_SAVINGS_ACCOUNT" />
+          <AssociationSet Name="fk_ACCOUNT_ACCOUNT_TYPE1" Association="Self.fk_ACCOUNT_ACCOUNT_TYPE1">
+            <End Role="ACCOUNT_TYPE" EntitySet="ACCOUNT_TYPE" />
+            <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ACCOUNT_BRANCH1" Association="Self.fk_ACCOUNT_BRANCH1">
+            <End Role="BRANCH" EntitySet="BRANCHes" />
+            <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ACCOUNT_CUSTOMER1" Association="Self.fk_ACCOUNT_CUSTOMER1">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SAVINGS_ACCOUNT_ACCOUNT1" Association="Self.fk_SAVINGS_ACCOUNT_ACCOUNT1">
+            <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+            <End Role="SAVINGS_ACCOUNT" EntitySet="SAVINGS_ACCOUNT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TRANSACTIONS_ACCOUNT1" Association="Self.fk_TRANSACTIONS_ACCOUNT1">
+            <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+            <End Role="TRANSACTIONS" EntitySet="TRANSACTIONS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_BRANCH_OWNER" Association="Self.fk_BRANCH_OWNER">
+            <End Role="OWNER" EntitySet="OWNERs" />
+            <End Role="BRANCH" EntitySet="BRANCHes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CUSTOMER_BRANCH1" Association="Self.fk_CUSTOMER_BRANCH1">
+            <End Role="BRANCH" EntitySet="BRANCHes" />
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_EMPLOYEE_BRANCH1" Association="Self.fk_EMPLOYEE_BRANCH1">
+            <End Role="BRANCH" EntitySet="BRANCHes" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SAVINGS_ACCOUNT_BRANCH1" Association="Self.fk_SAVINGS_ACCOUNT_BRANCH1">
+            <End Role="BRANCH" EntitySet="BRANCHes" />
+            <End Role="SAVINGS_ACCOUNT" EntitySet="SAVINGS_ACCOUNT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TRANSACTIONS_BRANCH1" Association="Self.fk_TRANSACTIONS_BRANCH1">
+            <End Role="BRANCH" EntitySet="BRANCHes" />
+            <End Role="TRANSACTIONS" EntitySet="TRANSACTIONS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SAVINGS_ACCOUNT_CUSTOMER1" Association="Self.fk_SAVINGS_ACCOUNT_CUSTOMER1">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="SAVINGS_ACCOUNT" EntitySet="SAVINGS_ACCOUNT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_EMPLOYEE_POSITION_EMP1" Association="Self.fk_EMPLOYEE_POSITION_EMP1">
+            <End Role="POSITION_EMP" EntitySet="POSITION_EMP" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SAVINGS_ACCOUNT_TYPE_SAVINGS_ACCOUNT1" Association="Self.fk_SAVINGS_ACCOUNT_TYPE_SAVINGS_ACCOUNT1">
+            <End Role="TYPE_SAVINGS_ACCOUNT" EntitySet="TYPE_SAVINGS_ACCOUNT" />
+            <End Role="SAVINGS_ACCOUNT" EntitySet="SAVINGS_ACCOUNT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TRANSACTIONS_TRANSACTION_TYPES1" Association="Self.fk_TRANSACTIONS_TRANSACTION_TYPES1">
+            <End Role="TRANSACTION_TYPES" EntitySet="TRANSACTION_TYPES" />
+            <End Role="TRANSACTIONS" EntitySet="TRANSACTIONS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BankModelStoreContainer" CdmEntityContainer="BANK_MANAGEMENTEntities">
+          <EntitySetMapping Name="ACCOUNTs">
+            <EntityTypeMapping TypeName="BankModel.ACCOUNT">
+              <MappingFragment StoreEntitySet="ACCOUNT">
+                <ScalarProperty Name="idACCOUNT" ColumnName="idACCOUNT" />
+                <ScalarProperty Name="idACCOUNT_TYPE" ColumnName="idACCOUNT_TYPE" />
+                <ScalarProperty Name="idBranch" ColumnName="idBranch" />
+                <ScalarProperty Name="idCUSTOMER" ColumnName="idCUSTOMER" />
+                <ScalarProperty Name="Account_number" ColumnName="Account_number" />
+                <ScalarProperty Name="Open_date" ColumnName="Open_date" />
+                <ScalarProperty Name="Close_date" ColumnName="Close_date" />
+                <ScalarProperty Name="Currentcy_code" ColumnName="Currentcy_code" />
+                <ScalarProperty Name="Min_Balance" ColumnName="Min_Balance" />
+                <ScalarProperty Name="Max_Balance" ColumnName="Max_Balance" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+                <ScalarProperty Name="Last_update_by" ColumnName="Last_update_by" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Last_update_date" ColumnName="Last_update_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACCOUNT_TYPE">
+            <EntityTypeMapping TypeName="BankModel.ACCOUNT_TYPE">
+              <MappingFragment StoreEntitySet="ACCOUNT_TYPE">
+                <ScalarProperty Name="idACCOUNT_TYPE" ColumnName="idACCOUNT_TYPE" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MinBal" ColumnName="MinBal" />
+                <ScalarProperty Name="MaxBal" ColumnName="MaxBal" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+                <ScalarProperty Name="Last_update_by" ColumnName="Last_update_by" />
+                <ScalarProperty Name="Create_date" ColumnName="Create_date" />
+                <ScalarProperty Name="Last_update_date" ColumnName="Last_update_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BRANCHes">
+            <EntityTypeMapping TypeName="BankModel.BRANCH">
+              <MappingFragment StoreEntitySet="BRANCH">
+                <ScalarProperty Name="idBranch" ColumnName="idBranch" />
+                <ScalarProperty Name="idOWNER" ColumnName="idOWNER" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="last_update_by" ColumnName="last_update_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="last_update_date" ColumnName="last_update_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMERs">
+            <EntityTypeMapping TypeName="BankModel.CUSTOMER">
+              <MappingFragment StoreEntitySet="CUSTOMER">
+                <ScalarProperty Name="idCUSTOMER" ColumnName="idCUSTOMER" />
+                <ScalarProperty Name="idBranch" ColumnName="idBranch" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ID_NUMBER" ColumnName="ID_NUMBER" />
+                <ScalarProperty Name="ID_DATE" ColumnName="ID_DATE" />
+                <ScalarProperty Name="ID_PLACE" ColumnName="ID_PLACE" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+                <ScalarProperty Name="Last_update_by" ColumnName="Last_update_by" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Last_update_date" ColumnName="Last_update_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEEs">
+            <EntityTypeMapping TypeName="BankModel.EMPLOYEE">
+              <MappingFragment StoreEntitySet="EMPLOYEE">
+                <ScalarProperty Name="idEMPLOYEE" ColumnName="idEMPLOYEE" />
+                <ScalarProperty Name="idBranch" ColumnName="idBranch" />
+                <ScalarProperty Name="idPOSITION" ColumnName="idPOSITION" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="last_update_by" ColumnName="last_update_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="last_update_date" ColumnName="last_update_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWNERs">
+            <EntityTypeMapping TypeName="BankModel.OWNER">
+              <MappingFragment StoreEntitySet="OWNER">
+                <ScalarProperty Name="idOWNER" ColumnName="idOWNER" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="last_update_by" ColumnName="last_update_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="last_update_date" ColumnName="last_update_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POSITION_EMP">
+            <EntityTypeMapping TypeName="BankModel.POSITION_EMP">
+              <MappingFragment StoreEntitySet="POSITION_EMP">
+                <ScalarProperty Name="idPOSITION" ColumnName="idPOSITION" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+                <ScalarProperty Name="Last_update_by" ColumnName="Last_update_by" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Last_update_date" ColumnName="Last_update_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAVINGS_ACCOUNT">
+            <EntityTypeMapping TypeName="BankModel.SAVINGS_ACCOUNT">
+              <MappingFragment StoreEntitySet="SAVINGS_ACCOUNT">
+                <ScalarProperty Name="idSAVINGS_ACCOUNT" ColumnName="idSAVINGS_ACCOUNT" />
+                <ScalarProperty Name="idTYPE_SAVINGS_ACCOUNT" ColumnName="idTYPE_SAVINGS_ACCOUNT" />
+                <ScalarProperty Name="idBranch" ColumnName="idBranch" />
+                <ScalarProperty Name="idCUSTOMER" ColumnName="idCUSTOMER" />
+                <ScalarProperty Name="idACCOUNT" ColumnName="idACCOUNT" />
+                <ScalarProperty Name="Open_Date" ColumnName="Open_Date" />
+                <ScalarProperty Name="Close_Date" ColumnName="Close_Date" />
+                <ScalarProperty Name="Maturial_Date" ColumnName="Maturial_Date" />
+                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+                <ScalarProperty Name="Last_update_by" ColumnName="Last_update_by" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Last_update_date" ColumnName="Last_update_date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRANSACTION_TYPES">
+            <EntityTypeMapping TypeName="BankModel.TRANSACTION_TYPES">
+              <MappingFragment StoreEntitySet="TRANSACTION_TYPES">
+                <ScalarProperty Name="idTRANSACTION_TYPES" ColumnName="idTRANSACTION_TYPES" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+                <ScalarProperty Name="Last_update_by" ColumnName="Last_update_by" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Last_update_date" ColumnName="Last_update_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRANSACTIONS">
+            <EntityTypeMapping TypeName="BankModel.TRANSACTION">
+              <MappingFragment StoreEntitySet="TRANSACTIONS">
+                <ScalarProperty Name="idTRANSACTIONS" ColumnName="idTRANSACTIONS" />
+                <ScalarProperty Name="idBranch" ColumnName="idBranch" />
+                <ScalarProperty Name="idTRANSACTION_TYPES" ColumnName="idTRANSACTION_TYPES" />
+                <ScalarProperty Name="idACCOUNT" ColumnName="idACCOUNT" />
+                <ScalarProperty Name="Entered_amount" ColumnName="Entered_amount" />
+                <ScalarProperty Name="Accounted_amount" ColumnName="Accounted_amount" />
+                <ScalarProperty Name="Fee_amount" ColumnName="Fee_amount" />
+                <ScalarProperty Name="Tax_amount" ColumnName="Tax_amount" />
+                <ScalarProperty Name="Currentcy_code" ColumnName="Currentcy_code" />
+                <ScalarProperty Name="Exchange_rate" ColumnName="Exchange_rate" />
+                <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+                <ScalarProperty Name="Last_update_by" ColumnName="Last_update_by" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Last_update_date" ColumnName="Last_update_date" />
+                <ScalarProperty Name="Approver_by" ColumnName="Approver_by" />
+                <ScalarProperty Name="Approver_date" ColumnName="Approver_date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TYPE_SAVINGS_ACCOUNT">
+            <EntityTypeMapping TypeName="BankModel.TYPE_SAVINGS_ACCOUNT">
+              <MappingFragment StoreEntitySet="TYPE_SAVINGS_ACCOUNT">
+                <ScalarProperty Name="idTYPE_SAVINGS_ACCOUNT" ColumnName="idTYPE_SAVINGS_ACCOUNT" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Create_by" ColumnName="Create_by" />
+                <ScalarProperty Name="Last_update_by" ColumnName="Last_update_by" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Last_update_date" ColumnName="Last_update_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
