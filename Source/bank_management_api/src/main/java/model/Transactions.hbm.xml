@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 21, 2017 1:57:04 PM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="model.Transactions" table="transactions" catalog="bank_management" optimistic-lock="version">
+        <id name="idTransactions" type="java.lang.Integer">
+            <column name="idTRANSACTIONS" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="account" class="model.Account" fetch="select">
+            <column name="idACCOUNT" not-null="true" />
+        </many-to-one>
+        <many-to-one name="branch" class="model.Branch" fetch="select">
+            <column name="idBranch" not-null="true" />
+        </many-to-one>
+        <many-to-one name="transactionTypes" class="model.TransactionTypes" fetch="select">
+            <column name="idTRANSACTION_TYPES" not-null="true" />
+        </many-to-one>
+        <property name="enteredAmount" type="java.lang.Long">
+            <column name="Entered_amount" precision="10" scale="0" />
+        </property>
+        <property name="accountedAmount" type="java.lang.Long">
+            <column name="Accounted_amount" precision="10" scale="0" />
+        </property>
+        <property name="feeAmount" type="java.lang.Long">
+            <column name="Fee_amount" precision="10" scale="0" />
+        </property>
+        <property name="taxAmount" type="java.lang.Long">
+            <column name="Tax_amount" precision="10" scale="0" />
+        </property>
+        <property name="currentcyCode" type="string">
+            <column name="Currentcy_code" length="45" />
+        </property>
+        <property name="exchangeRate" type="java.lang.Long">
+            <column name="Exchange_rate" precision="10" scale="0" />
+        </property>
+        <property name="createdBy" type="java.lang.Integer">
+            <column name="Created_by" />
+        </property>
+        <property name="lastUpdateBy" type="java.lang.Integer">
+            <column name="Last_update_by" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="Created_date" length="19" />
+        </property>
+        <property name="lastUpdateDate" type="timestamp">
+            <column name="Last_update_date" length="19" />
+        </property>
+        <property name="approverBy" type="java.lang.Integer">
+            <column name="Approver_by" />
+        </property>
+        <property name="approverDate" type="timestamp">
+            <column name="Approver_date" length="19" />
+        </property>
+        <property name="status" type="string">
+            <column name="Status" length="15" />
+        </property>
+    </class>
+</hibernate-mapping>

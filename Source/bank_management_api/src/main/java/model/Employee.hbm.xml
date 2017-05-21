@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 21, 2017 1:57:04 PM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+ <class catalog="bank_management" name="model.Employee" table="employee">
+  <id name="idEmployee" type="java.lang.Integer">
+   <column name="idEMPLOYEE"/>
+   <generator class="identity"/>
+  </id>
+  <many-to-one class="model.Branch" fetch="join" name="branch">
+   <column name="idBranch" not-null="false"/>
+  </many-to-one>
+  <many-to-one class="model.PositionEmp" fetch="select" name="positionEmp">
+   <column name="idPOSITION" not-null="false"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="name" type="string">
+   <column length="50" name="Name"/>
+  </property>
+  <property generated="never" lazy="false" name="address" type="string">
+   <column name="Address"/>
+  </property>
+  <property generated="never" lazy="false" name="phone" type="string">
+   <column length="15" name="Phone"/>
+  </property>
+  <property generated="never" lazy="false" name="createdBy" type="java.lang.Integer">
+   <column name="created_by"/>
+  </property>
+  <property generated="never" lazy="false" name="lastUpdateBy" type="java.lang.Integer">
+   <column name="last_update_by"/>
+  </property>
+  <property generated="never" lazy="false" name="createdDate" type="timestamp">
+   <column length="19" name="created_date"/>
+  </property>
+  <property generated="never" lazy="false" name="lastUpdateDate" type="timestamp">
+   <column length="19" name="last_update_date"/>
+  </property>
+ </class>
+</hibernate-mapping>

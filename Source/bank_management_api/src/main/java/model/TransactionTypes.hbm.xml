@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 21, 2017 1:57:04 PM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="model.TransactionTypes" table="transaction_types" catalog="bank_management" optimistic-lock="version">
+        <id name="idTransactionTypes" type="java.lang.Integer">
+            <column name="idTRANSACTION_TYPES" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="Name" length="155" />
+        </property>
+        <property name="status" type="string">
+            <column name="Status" length="15" />
+        </property>
+        <property name="createdBy" type="java.lang.Integer">
+            <column name="Created_by" />
+        </property>
+        <property name="lastUpdateBy" type="java.lang.Integer">
+            <column name="Last_update_by" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="Created_date" length="19" />
+        </property>
+        <property name="lastUpdateDate" type="timestamp">
+            <column name="Last_update_date" length="19" />
+        </property>
+        <set name="transactionses" table="transactions" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idTRANSACTION_TYPES" not-null="true" />
+            </key>
+            <one-to-many class="model.Transactions" />
+        </set>
+    </class>
+</hibernate-mapping>

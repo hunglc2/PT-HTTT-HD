@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 21, 2017 1:57:04 PM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="model.SavingsAccount" table="savings_account" catalog="bank_management" optimistic-lock="version">
+        <id name="idSavingsAccount" type="java.lang.Integer">
+            <column name="idSAVINGS_ACCOUNT" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="account" class="model.Account" fetch="select">
+            <column name="idACCOUNT" not-null="true" />
+        </many-to-one>
+        <many-to-one name="branch" class="model.Branch" fetch="select">
+            <column name="idBranch" not-null="true" />
+        </many-to-one>
+        <many-to-one name="customer" class="model.Customer" fetch="select">
+            <column name="idCUSTOMER" not-null="true" />
+        </many-to-one>
+        <many-to-one name="typeSavingsAccount" class="model.TypeSavingsAccount" fetch="select">
+            <column name="idTYPE_SAVINGS_ACCOUNT" not-null="true" />
+        </many-to-one>
+        <property name="openDate" type="date">
+            <column name="Open_Date" length="10" />
+        </property>
+        <property name="closeDate" type="date">
+            <column name="Close_Date" length="10" />
+        </property>
+        <property name="maturialDate" type="date">
+            <column name="Maturial_Date" length="10" />
+        </property>
+        <property name="createdBy" type="java.lang.Integer">
+            <column name="Created_by" />
+        </property>
+        <property name="lastUpdateBy" type="java.lang.Integer">
+            <column name="Last_update_by" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="Created_date" length="19" />
+        </property>
+        <property name="lastUpdateDate" type="timestamp">
+            <column name="Last_update_date" length="19" />
+        </property>
+        <property name="status" type="string">
+            <column name="Status" length="15" />
+        </property>
+    </class>
+</hibernate-mapping>

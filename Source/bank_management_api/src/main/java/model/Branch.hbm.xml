@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 21, 2017 1:57:04 PM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="model.Branch" table="branch" catalog="bank_management" optimistic-lock="version">
+        <id name="idBranch" type="java.lang.Integer">
+            <column name="idBranch" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="owner" class="model.Owner" fetch="select">
+            <column name="idOWNER" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="Name" length="150" />
+        </property>
+        <property name="address" type="string">
+            <column name="Address" />
+        </property>
+        <property name="phone" type="string">
+            <column name="Phone" length="15" />
+        </property>
+        <property name="fax" type="string">
+            <column name="Fax" length="20" />
+        </property>
+        <property name="createdBy" type="java.lang.Integer">
+            <column name="created_by" />
+        </property>
+        <property name="lastUpdateBy" type="java.lang.Integer">
+            <column name="last_update_by" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="created_date" length="19" />
+        </property>
+        <property name="lastUpdateDate" type="timestamp">
+            <column name="last_update_date" length="19" />
+        </property>
+        <set name="transactionses" table="transactions" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idBranch" not-null="true" />
+            </key>
+            <one-to-many class="model.Transactions" />
+        </set>
+        <set name="employees" table="employee" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idBranch" not-null="true" />
+            </key>
+            <one-to-many class="model.Employee" />
+        </set>
+        <set name="accounts" table="account" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idBranch" not-null="true" />
+            </key>
+            <one-to-many class="model.Account" />
+        </set>
+        <set name="savingsAccounts" table="savings_account" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idBranch" not-null="true" />
+            </key>
+            <one-to-many class="model.SavingsAccount" />
+        </set>
+        <set name="customers" table="customer" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idBranch" not-null="true" />
+            </key>
+            <one-to-many class="model.Customer" />
+        </set>
+    </class>
+</hibernate-mapping>

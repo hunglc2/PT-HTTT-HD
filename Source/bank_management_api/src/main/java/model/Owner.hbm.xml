@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 21, 2017 1:57:04 PM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="model.Owner" table="owner" catalog="bank_management" optimistic-lock="version">
+        <id name="idOwner" type="java.lang.Integer">
+            <column name="idOWNER" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="Name" length="150" />
+        </property>
+        <property name="address" type="string">
+            <column name="Address" />
+        </property>
+        <property name="phone" type="string">
+            <column name="Phone" length="15" />
+        </property>
+        <property name="fax" type="string">
+            <column name="Fax" length="20" />
+        </property>
+        <property name="createdBy" type="java.lang.Integer">
+            <column name="created_by" />
+        </property>
+        <property name="lastUpdateBy" type="java.lang.Integer">
+            <column name="last_update_by" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="created_date" length="19" />
+        </property>
+        <property name="lastUpdateDate" type="timestamp">
+            <column name="last_update_date" length="19" />
+        </property>
+        <set name="branches" table="branch" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idOWNER" not-null="true" />
+            </key>
+            <one-to-many class="model.Branch" />
+        </set>
+    </class>
+</hibernate-mapping>

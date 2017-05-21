@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 21, 2017 1:57:04 PM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="model.Customer" table="customer" catalog="bank_management" optimistic-lock="version">
+        <id name="idCustomer" type="java.lang.Integer">
+            <column name="idCUSTOMER" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="branch" class="model.Branch" fetch="select">
+            <column name="idBranch" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="Name" length="55" />
+        </property>
+        <property name="address" type="string">
+            <column name="Address" />
+        </property>
+        <property name="birthday" type="date">
+            <column name="Birthday" length="10" />
+        </property>
+        <property name="sex" type="string">
+            <column name="Sex" length="5" />
+        </property>
+        <property name="phone" type="string">
+            <column name="Phone" length="15" />
+        </property>
+        <property name="fax" type="string">
+            <column name="Fax" length="20" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="45" />
+        </property>
+        <property name="idNumber" type="string">
+            <column name="ID_NUMBER" length="25" />
+        </property>
+        <property name="idDate" type="date">
+            <column name="ID_DATE" length="10" />
+        </property>
+        <property name="idPlace" type="string">
+            <column name="ID_PLACE" length="155" />
+        </property>
+        <property name="status" type="string">
+            <column name="Status" length="15" />
+        </property>
+        <property name="createdBy" type="java.lang.Integer">
+            <column name="Created_by" />
+        </property>
+        <property name="lastUpdateBy" type="java.lang.Integer">
+            <column name="Last_update_by" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="Created_date" length="19" />
+        </property>
+        <property name="lastUpdateDate" type="timestamp">
+            <column name="Last_update_date" length="19" />
+        </property>
+        <set name="accounts" table="account" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idCUSTOMER" not-null="true" />
+            </key>
+            <one-to-many class="model.Account" />
+        </set>
+        <set name="savingsAccounts" table="savings_account" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idCUSTOMER" not-null="true" />
+            </key>
+            <one-to-many class="model.SavingsAccount" />
+        </set>
+    </class>
+</hibernate-mapping>
