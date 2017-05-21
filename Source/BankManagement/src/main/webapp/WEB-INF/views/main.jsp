@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -263,8 +264,8 @@ desired effect
                 <ul class="sidebar-menu">
                     <li class="header">CRM</li>
                     <!-- Optionally, you can add icons to the links -->
-                    <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Customer</span></a></li>
-                    <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+                    <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Function</span></a></li>
+                    <li><a href="#"><i class="fa fa-link"></i> <span>Report</span></a></li>
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-link"></i> <span>Multilevel</span>
@@ -288,8 +289,7 @@ desired effect
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Customer
-                    <small>Information</small>
+                    Information
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -300,35 +300,32 @@ desired effect
             <!-- Main content -->
             <section class="content">
                 <div class="container">
-                    <!--<div class="col-xs-12 form-group">
-                        <div class="col-xs-6">
-                            <div class="col-xs-4">
-                                <input type="text" id="txtCustomerId" class="form-control" placeholder="Customer id" />
-                            </div>
-                            <div class="col-xs-2">
-                                <button type="button" id="btnGetCustomerAll" class="btn btn-default">Get all</button>
-                            </div>
-                        </div>
-                    </div>-->
-                    <div id="areaCustomer" class="col-xs-12 table-responsive">
-                        <table class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th id="thInsertCustomer" class='set-center-header-table'>
-                                    </th>
-                                    <th class="set-center-header-table">Id</th>
-                                    <th class="set-center-header-table">Name</th>
-                                    <th class="set-center-header-table">FullName</th>
-                                    <th class="set-center-header-table">BirthDay</th>
-                                    <th class="set-center-header-table">Mail</th>
-                                    <th class="set-center-header-table">Tel</th>
-                                    <th class="set-center-header-table">Details</th>
-                                    <th class="set-center-header-table">Edit</th>
-                                </tr>
-                            </thead>
-                            <tbody id="listCustomer" class="table table-bordered table-striped"></tbody>
-                        </table>
-                    </div>
+	                <div class="row">
+	                	<ul class='nav nav-tabs nav-justified'>
+	                		<li class="active"><a data-toggle="tab" href="#customerContent">Customer</a></li>
+	                		<li><a data-toggle="tab" href="#staffContent">Staff</a></li>
+	                		<li><a data-toggle="tab" href="#savingBookContent">Saving book</a></li>
+	                		<li><a data-toggle="tab" href="#bankBranch">Bank branch</a></li>
+	                		<li><a data-toggle="tab" href="#bankAccount">Bank account</a></li>
+	                	</ul>
+	                	<div class="tab-content">
+	                		<div id="customerContent" class="tab-pane fade in active">
+	                			<jsp:include page="customer.jsp"></jsp:include>
+	                		</div>
+	                		<div id="staffContent" class="tab-pane fade">
+	                			<jsp:include page="staff.jsp"></jsp:include>
+	                		</div>
+							<div id="savingBookContent" class="tab-pane fade">
+								<jsp:include page="savingbook.jsp"></jsp:include>
+							</div>
+							<div id="bankBranch" class="tab-pane fade">
+								<jsp:include page="bankbranch.jsp"></jsp:include>
+							</div>
+							<div id="bankAccount" class="tab-pane fade">
+								<jsp:include page="bankaccount.jsp"></jsp:include>
+							</div>
+						</div>
+	                </div>
                 </div>
             </section>
             <!-- /.content -->
