@@ -4,7 +4,7 @@
 		<thead>
 			<tr>
 				<th class="">
-					<button id="registerCustomer" type="button" class="btn btn-info" data-toggle="modal" data-target="#insertCusInfo">
+					<button id="btnRegisterCustomer" type="button" class="btn btn-info" data-toggle="modal" data-target="#insertCusInfo">
 						<span class='glyphicon glyphicon-plus' aria-hidden='true'></span>
 					</button>
 				</th>
@@ -21,6 +21,16 @@
 				<th class="">CMND</th>
 				<th class="">Nơi cấp</th>
 				<th class="">Ngày cấp</th>
+				<th class="">
+					<button id="btnUpdateCustomer" type="button" class="btn btn-warning" data-toggle="modal" data-target="#insertCusInfo">
+						<span class='glyphicon glyphicon-transfer' aria-hidden='true'></span>
+					</button>
+				</th>
+				<th class="">
+					<button id="btnDeleteCustomer" type="button" class="btn btn-danger">
+						<span class='glyphicon glyphicon-remove' aria-hidden='true'></span>
+					</button>
+				</th>
 			</tr>
 		</thead>
 		<tbody id="listCustomer" class="table table-bordered table-striped">

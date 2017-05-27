@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 	
 	$("#btn-login").click(function() {
@@ -10,14 +11,24 @@ $(document).ready(function() {
 	        data : {
 	        	username : username,
 	        	password : password
-	        }
-	    })
-	    .done(function (result) {
-	    	window.location.href = "http://localhost:8080/BankManagement/bm/main";
-	    })
-	    .fail(function () {
-	        alert('Fail');
-	    })
+	        },
+	        success: function(response){
+		    	alert(response.url);
+		    	window.location.replace(response.url);
+		    },
+		    timeout: 10000,
+	        error: function(xhr, status, err){ 
+	            if(status=='timeout')
+	            {   
+	                alert('Request time has been out','');
+	            }
+	            console.log(status,err);
+	        },
+	        done : function(e) {
+				console.log("DONE");
+			}
+	    });
+
 	})
 	
 });
