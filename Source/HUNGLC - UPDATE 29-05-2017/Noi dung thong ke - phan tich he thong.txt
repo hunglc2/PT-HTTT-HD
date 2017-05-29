@@ -1,0 +1,20 @@
+1./ Thống kê các chi nhánh thuộc owner (Có tham số (Owner, Ngày thành lập, Khu vực...) - Hiển thị danh sách)
+2.1/ Thống kê các Customer thuộc chi nhánh hoặc owner ( tham số Owner, chi nhánh, Địa chỉ, ngày tạo, tình trạng hoạt động, mã Customer...)
+2.2/ Thống kê các Account thuộc chi nhánh, owner, customer ( tham số Owner, chi nhánh, customer, Địa chỉ, ngày tạo, tình trạng hoạt động, mã account...)
+3./ Thống kê các Employee thuộc các chi nhánh hoặc owner (Tham số Owner, chi nhánh, Chức vụ, Địa chỉ, ngày tạo, tình trạng hoạt động, mã Employee...)
+4./ Liệt kê sổ tiết kiệm thuộc Customer/ tài khoản phát sinh hoặc đăng ký  (tham số Owner, chi nhánh, địa chỉ, ngày tạo, tình trạng hoạt động, mã customer...)
+5./ Thống kê các giao dịch phát sinh của customer (tham số Owner, chi nhánh, phát sinh tại tài khoản, loại tài khoản, địa chỉ, ngày phát sinh giao dịch, 
+	loại giao dịch, tình trạng hoạt động, mã Customer...).
+6./ Sơ đồ phân tích phát sinh giao dịch hệ thống trong từng giai đoạn (tham số Owner, chi nhánh, từ ngày, đến ngày).
+
+
+
+
+- Thống kê số lượng giao dịch trong ngày. -> số 5
+- Thống kê số lượng khách hàng đăng ký hệ thống tài khoản -> số 2.1
+- Thống kê số lượng tài khoản được đăng ký bởi khách hàng -> số 2.2
+- Thống kê số lượng nhân viên của toàn hệ thống -> số 3
+
+
+- Line chart thống kê số lượng giao dịch trong ngày. -> số 5
+
