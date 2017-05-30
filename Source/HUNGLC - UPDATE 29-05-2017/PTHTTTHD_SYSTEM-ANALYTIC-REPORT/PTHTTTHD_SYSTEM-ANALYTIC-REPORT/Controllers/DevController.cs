@@ -16,21 +16,13 @@ namespace PTHTTTHD_SYSTEM_ANALYTIC_REPORT.Controllers
 
         public ActionResult Dev01()
         {
+            ViewBag.Message = "Your test page.";
             return View();
         }
 
         public ActionResult Dev02()
         {
-            return View();
-        }
-
-        public ActionResult Dev03()
-        {
-            return View();
-        }
-
-        public ActionResult Dev04()
-        {
+            ViewBag.Message = "Your test page.";
             return View();
         }
     }
