@@ -1159,6 +1159,7 @@
     <Content Include="Views\Dashboard\Dashboard01.cshtml" />
     <Content Include="Views\Dashboard\Dashboard02.cshtml" />
     <Content Include="Views\Dev\Dev01.cshtml" />
+    <Content Include="Views\Dev\Dev02.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
